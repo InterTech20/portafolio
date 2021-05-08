@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --fondo:#161a23;
+    --primay: linear-gradient( #00f2ad, #0065fd); 
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--fondo);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+body::after{
+    content: '';
+    position: absolute;
+    background: var(--primay);
+    width: 400px;
+    height: 400px;
+    transform: translate(-900px,-350px);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+body::before{
+    content: '';
+    position: absolute;
+    background: var(--primay);
+    width: 400px;
+    height: 400px;
+    transform: translate(750px,450px);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(45deg,  #4a4f59,#161a23); 
+    color: #01f7bb;
+    width: 25%;
+    height: 500px;
+}
+
+.items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #01f7bb;
+    padding: 5px;
+    text-align: center;
+}
+
+.items::before{
+    content: '';
+    position: absolute;
+    width: 12.5%;
+    height: 0;
+    background: var(--primay);
+    text-align: center;
+    cursor: pointer;
+    transition: 2s;
+    z-index: 0;
+}
+.items>.fas{
+    
+    font-size: 24px;
+    z-index: 1;
+    color: white; 
+}
+.items>span{
+    margin-top: 10px;
+    font-size: 24px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 
+    'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+     Verdana, sans-serif;
+    transition: 2s;
+    cursor: pointer;
+    z-index: 1;
+    color: white;
+}
+
+.items>span:hover{
+     transform: scale(1.2); 
+}
+
+.items:hover:before{
+     height: 250px;
+}
+.modal{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--fondo);
+    width: 100%;
+    filter: opacity(90%);
+    height: 100vh;
+    transition: 2s;
+    z-index: 3;
+}
+.modal_container{
+    position: absolute;
+    width: 25%;
+    border: 2px solid transparent; 
+    border-image: linear-gradient(to bottom, #00f2ad 0%, #0065fd 100%) 1; 
+    transition: 2s;
+    height: 25%;
+    z-index: 999;
+}
+.modal_header{
+    display: block;
+    width: 100%;
+    background: turquoise;
+    height: 20px;
+}
+.modal_card{
+    display: block;
+    color: white;
+}
+#icon_menu,.btn_modal{
+    cursor: pointer;
+    float: right;
+    padding: 2px;
+    padding-right: 5px;
+    transition: 1s;
+}
+
+#icon_menu:hover,.btn_modal:hover{
+ color: white;
+}
+
+.container_item_modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 200%;
+    height: 200vh;
+    background: var(--fondo);
+    filter: opacity(90%);
+    z-index: 999;
+    color: white;
+}
+
+.cont_about{
+    margin: 15% 10% 10% 15% ;
+    border: 2px solid transparent; 
+    border-image: linear-gradient(to bottom, #00f2ad 0%, #0065fd 100%) 1;
+    width:  25%;
+    height: 400px;
+}
+
+.conten_about_header{
+    display: block;
+    width: 100%;
+    background: turquoise;
+    height: 20px;
+}
+
+.conten_about_section{
+    width:  100%;
+    height: 360px;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #67686d ;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #313235;
+}
+::-webkit-scrollbar-track{
+    background: #1a1a1b;
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px #222222;
+   }
+   /* #67686d */
+@media (max-width: 992px) {
+ 
+    body::after{
+       transform: translate(-300px,-300px);     
+    }
+ 
+    body::before{       
+       transform: translate(185px,300px); 
+    }
+    .container{
+        /* width: 25%; */
+        height: 250px;
+    }
+    .items:hover:before{
+        height: 127px;
+   }
+    .items>span{
+        font-size: medium;
+    }
+
+}
+/*https://w3generator.com/scrollbar*/
